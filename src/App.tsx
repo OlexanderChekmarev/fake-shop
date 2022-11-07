@@ -3,12 +3,22 @@ import React from 'react'
 type TitleProps = {
     title: string
     text?: string
+    num:number
 }
 
-const Title = (props: TitleProps) => 
-<h1> 
-    {props.text} {props.title}
-</h1>
+const Title = (props: TitleProps) => {
+    console.log(props)
+    return (
+        <>
+        <h1> 
+           {props.text} {props.title}
+        </h1>
+        <div>{props.num}</div>
+        </>
+       
+       
+    )
+}
 
 const List = () => {
     let a = 10
@@ -38,8 +48,8 @@ const List = () => {
 function App() {
     return (
         <div className="App">
-            <Title title="App.js" />  
-            <Title title="Test.js" />  
+            <Title title="App.js" text="Hi"num={15} />  
+            <Title title="Test.js" text="Hello"num={25} />  
             <List />    
         </div>
     )
