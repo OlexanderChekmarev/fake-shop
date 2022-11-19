@@ -1,4 +1,5 @@
 type Product = {
+    
     name: string
     description: string
     type: string
@@ -8,6 +9,7 @@ type Product = {
 
 const productsArray:Product[] = [
     {
+       
      name:"iPhone X",
      description:"This is iPhone X",
      type:"phone",
@@ -15,6 +17,7 @@ const productsArray:Product[] = [
      price:500,
     },
     {
+     
      name:"iPhone 13 Pro",
      description:"This is iPhone 13 Pro",
      type:"phone",
@@ -22,6 +25,7 @@ const productsArray:Product[] = [
      price:1000,
     },
     {
+    
      name:"iPhone XS",
      description:"This is iPhone XS",
      type:"phone",
