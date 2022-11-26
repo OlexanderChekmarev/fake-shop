@@ -10,6 +10,7 @@ type ProductProps = {
     type: string
     capacity: number
     price: number
+    image: string
 }
 
 type Props = {}
@@ -43,6 +44,7 @@ const ProductsList = (props: Props) => {
                             type,
                             capacity,
                             price,
+                            image,
                         }: ProductProps,
                         
                     ) => (
@@ -53,6 +55,7 @@ const ProductsList = (props: Props) => {
                                 type={type}
                                 capacity={capacity}
                                 price={price}
+                                image={image}
                             />
                         </Grid>
                     )
