@@ -25,18 +25,23 @@ class ProductListItem extends Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.onIncrementClick = this.onIncrementClick.bind(this)
+        this.onDecrementClick = this.onDecrementClick.bind(this)
     }
 
-state = {
-    count: 1,
-}
+    state = {
+        count: 1,
+    }
 
-onIncrementClick () {
-    console.log(this)
-    this.setState((prevState) => ({
-        count: prevState.count + 1,
-    }))
-}
+    onIncrementClick() {
+        this.setState((prevState) => ({
+            count: prevState.count + 1,
+        }))
+    }
+    onDecrementClick() {
+        this.setState((prevState: State) => ({
+            count: prevState.count - 1,
+        }))
+    }
     render() {
         console.log(this)
         const { image, name, description, type, capacity, price }: Props =
@@ -59,7 +64,11 @@ onIncrementClick () {
                     </div>
                     <div className="product-price">Price: {price} $</div>
                     <div className="product-quantity">
-                        <Button variant="contained" size="small">
+                        <Button
+                            variant="contained"
+                            size="small"
+                            onClick={this.onDecrementClick}
+                        >
                             -
                         </Button>
                         <TextField
@@ -67,7 +76,11 @@ onIncrementClick () {
                             value={this.state.count}
                             variant="outlined"
                         />
-                        <Button variant="contained" size="small" onClick={this.onIncrementClick}>
+                        <Button
+                            variant="contained"
+                            size="small"
+                            onClick={this.onIncrementClick}
+                        >
                             +
                         </Button>
                     </div>
