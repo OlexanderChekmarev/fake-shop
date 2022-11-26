@@ -22,11 +22,11 @@ type State = {
 }
 
 class ProductListItem extends Component<Props, State> {
-    constructor(props: Props) {
-        super(props)
-        this.onIncrementClick = this.onIncrementClick.bind(this)
-        this.onDecrementClick = this.onDecrementClick.bind(this)
-    }
+    // constructor(props: Props) {
+    //     super(props)
+    //     this.onIncrementClick = this.onIncrementClick.bind(this)
+    //     this.onDecrementClick = this.onDecrementClick.bind(this)
+    // }
 
     state = {
         count: 1,
@@ -79,7 +79,7 @@ class ProductListItem extends Component<Props, State> {
                         <Button
                             variant="contained"
                             size="small"
-                            onClick={this.onIncrementClick}
+                            onClick={() => this.onIncrementClick()}
                         >
                             +
                         </Button>
