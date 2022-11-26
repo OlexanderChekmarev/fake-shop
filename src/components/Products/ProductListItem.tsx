@@ -1,6 +1,12 @@
-import { Button, Card, CardActions, CardContent, TextField } from '@mui/material'
+import {
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    TextField,
+} from '@mui/material'
 import './ProductListItem.scss'
-import { Component } from "react"
+import { Component } from 'react'
 
 type Props = {
     name: string
@@ -11,33 +17,50 @@ type Props = {
     image: string
 }
 
-class ProductListItem extends Component<Props> {
+type State = {
+    count: number
+}
+
+class ProductListItem extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+        this.state = {
+            count: 2,
+        }
+    }
+
     render() {
+        const { image, name, description, type, capacity, price }: Props =
+            this.props
         return (
             <Card className="product">
                 <CardContent>
                     <div className="product-image">
-                        <img src={this.props.image} alt={this.props.name} />
+                        <img src={image} alt={name} />
                     </div>
                     <h4>{this.props.name}</h4>
-                    <p className="product-description">{this.props.description}</p>
+                    <p className="product-description">{description}</p>
                     <div className="product-features">
                         <span>Type</span>
-                        {this.props.type}
+                        {type}
                     </div>
                     <div className="product-features">
                         {' '}
-                        <span>Capacity</span>: {this.props.capacity} Gb
+                        <span>Capacity</span>: {capacity} Gb
                     </div>
-                    <div className="product-price">Price: {this.props.price} $</div>
-                    <div className='product-quantity'>
-                        <Button variant="contained" size='small' >
+                    <div className="product-price">Price: {price} $</div>
+                    <div className="product-quantity">
+                        <Button variant="contained" size="small">
                             -
-                            </Button>
-                        <TextField size="small" value="1" variant='outlined'/>
-                        <Button variant="contained" size='small'>
+                        </Button>
+                        <TextField
+                            size="small"
+                            value={this.state.count}
+                            variant="outlined"
+                        />
+                        <Button variant="contained" size="small">
                             +
-                            </Button>
+                        </Button>
                     </div>
                 </CardContent>
                 <CardActions className="btn-wrap">
@@ -47,9 +70,5 @@ class ProductListItem extends Component<Props> {
         )
     }
 }
-
-
-    
-
 
 export default ProductListItem
