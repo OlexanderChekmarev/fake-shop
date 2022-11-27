@@ -45,9 +45,9 @@ class ProductListItem extends Component<Props, State> {
         }))
     }
     changeColor = () => {
-        this.setState({
-            color: 'red',
-        })
+        this.setState((prevState:State) => ({
+            color: prevState.color === "green" ? "red" : "green"
+    }))
     }
     render() {
         console.log(this)
@@ -79,6 +79,7 @@ class ProductListItem extends Component<Props, State> {
                             variant="contained"
                             size="small"
                             onClick={this.onDecrementClick}
+                            disabled={this.state.count <= 1}
                         >
                             -
                         </Button>
@@ -91,6 +92,7 @@ class ProductListItem extends Component<Props, State> {
                             variant="contained"
                             size="small"
                             onClick={() => this.onIncrementClick()}
+                            disabled={this.state.count >=10}
                         >
                             +
                         </Button>
