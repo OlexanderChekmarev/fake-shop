@@ -45,21 +45,21 @@ class ProductListItem extends Component<Props, State> {
         }))
     }
     changeColor = () => {
-        this.setState((prevState:State) => ({
-            color: prevState.color === "green" ? "red" : "green"
-    }))
+        this.setState((prevState: State) => ({
+            color: prevState.color === 'green' ? 'red' : 'green',
+        }))
     }
     render() {
         console.log(this)
         const { image, name, description, type, capacity, price }: Props =
             this.props
         return (
-            <Card className="product">
+            <Card className={`product ${this.state.color}`}>
                 <CardContent>
                     <div className="product-image">
                         <img src={image} alt={name} />
                     </div>
-                    <h4>{this.props.name}</h4>
+                    <h4>{name}</h4>
                     <p className="product-description">{description}</p>
                     <div className="product-features">
                         <span>Type</span>
@@ -71,7 +71,12 @@ class ProductListItem extends Component<Props, State> {
                     </div>
                     <div className="product-price">Price: {price} $</div>
                     <div>
-                        <p>Color:{this.state.color}</p>
+                        <p>
+                            Color:{' '}
+                            <span className={`${this.state.color}`}>
+                                {this.state.color}
+                            </span>
+                        </p>
                         <button onClick={this.changeColor}>Change color</button>
                     </div>
                     <div className="product-quantity">
@@ -92,7 +97,7 @@ class ProductListItem extends Component<Props, State> {
                             variant="contained"
                             size="small"
                             onClick={() => this.onIncrementClick()}
-                            disabled={this.state.count >=10}
+                            disabled={this.state.count >= 10}
                         >
                             +
                         </Button>

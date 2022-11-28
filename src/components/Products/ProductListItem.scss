@@ -4,7 +4,6 @@
     margin-bottom: 20px;
 }
 .product {
-    
     h4 {
         font-size: 23px;
     }
@@ -25,12 +24,11 @@
     }
     .product-image {
         img {
-          width: 150px;
-          height: auto;
+            width: 150px;
+            height: auto;
         }
-        
-        text-align: center;
 
+        text-align: center;
     }
     .product-quantity {
         display: flex;
@@ -39,5 +37,11 @@
         input {
             text-align: center;
         }
+    }
+    .red {
+        background-color: red;
+    }
+    .green {
+        background-color: green;
     }
 }
